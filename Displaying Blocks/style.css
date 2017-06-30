@@ -1,0 +1,54 @@
+/* CSS reset */
+* {
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#background {
+    background-color: #D7D4B6;
+    width: 650px;
+    margin: auto;
+    padding: 20px;
+}
+
+#header {
+    font: 900 30pt serif;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#header img {
+    /* Only specifying width to keep from distorting img */
+    width: 100px;
+}
+
+#cats {
+    display: flex;
+}
+
+#cats img {
+    width: 100px;
+    height: 100px;
+}
+
+.red img, .blue img {
+    border: 3px #000 solid;
+    margin-bottom: 4px;
+}
+
+.blue img {
+    padding: 10px;
+    background-color: #8BB4E9;
+}
+
+.red img {
+    padding: 10px;
+    background-color: #DA6D77;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Disappearing Ninjas</title>
+        <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("img").click(function() {
+                    $(this).fadeOut();
+                })
+                $("button").click(function() {
+                    $("img").fadeIn();
+                })
+            })
+        </script>
+        <style type="text/css">
+        #wrapper {
+            width: 1020px;
+            padding: 10px;
+            margin: auto;
+            background-color: lightgray;
+            text-align: center;
+        }
+        #images {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+        .ninja {
+            width: 230px;
+            height: 230px;
+            padding: 10px;
+        }
+        .ninja img {
+            width: 100%;
+        }
+        button {
+            display: block;
+            margin: auto;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Disappearing Ninjas</h1>
+            <div id="images">
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 1">
+                </div>
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 2">
+                </div>
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 3">
+                </div>
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 4">
+                </div>
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 5">
+                </div>
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 6">
+                </div>
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 7">
+                </div>
+                <div class="ninja">
+                    <img src="./ninja.png" alt="ninja 8">
+            </div>
+            </div>
+            <button>Restore</button>
+        </div>
+    </body>
+</html>

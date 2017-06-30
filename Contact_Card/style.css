@@ -1,0 +1,57 @@
+* {
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+#wrapper {
+    width: 80%;
+    min-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+form {
+    width: 300px;
+    margin-right: 20px;
+    background-color: lightgrey;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+h2 {
+    font: bold 20pt sans-serif;
+    color: black;
+    margin-bottom: 10px;
+}
+#cards {
+    width: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
+.card {
+    width: 90%;
+    height: 150px;
+    background-color: grey;
+    margin: 5px auto;
+    overflow: scroll;
+    padding: 5%;
+}
+h1 {
+    font: bold 20pt sans-serif;
+    color: black;
+    border-bottom: 1px black solid;
+    text-align: left;
+}
+h3 {
+    font-size: 18pt;
+}
+
+.back {
+    display: none;
+    text-align: left;
+}

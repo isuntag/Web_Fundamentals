@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Pokemon</title>
+        <meta name='description' content='Pokemon assignment for Coding Dojo'>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                for(var i=1; i<= 151; i++) {
+                    var poke = "http://pokeapi.co/media/img/" + i + ".png";
+                    $("#pokemon").append("<img src='" + poke + "' alt='pokemon #" + i + "'>")
+                }
+            })
+        </script>
+        <style type="text/css">
+        * {
+            vertical-align: baseline;
+            font-weight: inherit;
+            font-family: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            border: 0 none;
+            outline: 0;
+            padding: 0;
+            margin: 0;
+        }
+        #pokemon {
+            width: 80%;
+            margin: auto;
+            background-color: lightgray;
+            text-align: center;
+        }
+        #pokemon img {
+            width: 100px;
+        }
+        h1 {
+            padding: 20px 0;
+            text-align: center;
+            font: bold 30pt sans-serif;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="pokemon">
+            <h1>Original Pokemon (#1 - #151)</h1>
+        </div>
+    </body>
+</html>

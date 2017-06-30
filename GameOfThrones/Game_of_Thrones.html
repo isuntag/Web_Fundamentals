@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Game of Thrones</title>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#houses img").click(function() {
+                var house = $(this).attr("id");
+                $.get("https://www.anapioficeandfire.com/api/houses/"+house, function(information) {
+                    var html_string = `Name: ${information.name}<br>
+                    Region: ${information.region}<br>
+                    Words: ${information.words}<br>
+                    Titles: `;
+                    for(var i=0; i<information.titles.length-1; i++) {
+                        html_string += information.titles[i] + ", ";
+                    };
+                    html_string += `and ${information.titles[information.titles.length-1]}<br>
+                    `;
+                    $("#details p").html(html_string);
+                }
+                ,"json")
+            })
+        })
+        </script>
+        <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #wrapper {
+            width: 80%;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: whitesmoke;
+        }
+        h1 {
+            text-align: center;
+            color: #bf251f;
+            font: bold 30pt serif;
+        }
+        #houses {
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+        #houses img {
+            height: 150px;
+            margin: 10px;
+        }
+        #details {
+            width: 50%;
+            min-height: 150px;
+            padding: 10px;
+            margin: 20px auto;
+            background-color: lightgrey;
+            border: 2px solid black;
+            color: #151515;
+            font: 12pt sans-serif;
+        }
+        h2 {
+            color: #650200;
+            font: 18pt serif;
+            border-bottom: 1px solid #650200;
+            margin-bottom: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Game of Thrones</h1>
+            <div id="houses">
+                <img src="lannister.jpg" alt="House of Lannister" id="229">
+                <img src="stark.jpg" alt="House of Stark" id="362">
+                <img src="targaryen.jpg" alt="House of Targaryen" id="378">
+                <img src="baratheon.png" alt="House of Targaryen" id="15">
+            </div>
+            <div id="details">
+                <h2>House Details</h2>
+                <p></p>
+            </div>
+        </div>
+    </body>
+</html>

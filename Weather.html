@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>Search Weather</title>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('form').submit(function() {
+                $('#loader').show();
+                $('#info').hide();
+                var local = $("#location").val();
+                $.get("http://api.openweathermap.org/data/2.5/weather?q=" + local + "&units=imperial&&appid=d6a4c9e3ab621168f3538baa54766827", function(weather) {
+                    $('#loader').hide();
+                    $("#info h1").html(weather.name);
+                    $("#info p").html(`Temperature: ${weather.main.temp} °F<br>
+                    Min Temp: ${weather.main.temp_min} °F<br> 
+                    Max Temp: ${weather.main.temp_max} °F<br>
+                    Humidity: ${weather.main.humidity}%<br>
+                    Wind: ${weather.wind.speed} mph at ${weather.wind.deg}°`);
+                    $('#info').show();
+                }, 'json');
+                return false;
+            });
+            var myVar;
+
+            function myFunction() {
+                myVar = setTimeout(showPage, 3000);
+            }
+
+            function showPage() {
+            document.getElementById("loader").style.display = "none";
+            }
+        });
+        </script>
+        <style type="text/css">
+        #wrapper {
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            border: 1px black solid;
+            background-color: whitesmoke;
+        }
+        #loader {
+            margin: 20px auto;
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid #3498db;
+            width: 50px;
+            height: 50px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            display: none;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Add animation to "page content" */
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s
+        }
+
+        @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 } 
+            to { bottom:0px; opacity:1 }
+        }
+
+        @keyframes animatebottom { 
+            from{ bottom:-100px; opacity:0 } 
+            to{ bottom:0; opacity:1 }
+        }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Search Weather</h1>
+            <form>
+                <label for="location">Location:</label>
+                <input type="text" id="location">
+                <input type="submit" value="Search the weather">
+            </form>
+            <div id="loader"></div>
+            <div id="info">
+                <h1></h1>
+                <p></p>
+            </div>
+        </div>
+    </body>
+</html>
